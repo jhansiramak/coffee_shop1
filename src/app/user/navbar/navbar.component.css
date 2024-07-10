@@ -1,0 +1,114 @@
+
+a.nav-link.waves-effect.locate {
+  color: white !important;
+}
+
+span.category {
+  font-size: 150%;
+}
+a.nav-link.waves-effect.waves-light {
+  background-color: orange !important;
+  color: white !important;
+  border-radius: 4px;
+}
+
+
+.btn-group {
+  margin-top: -7%;
+}
+
+
+.div_top_hypers.myicnons {
+  margin-left: 42%;
+}
+
+a.nav-link.waves-effect.locate {
+  color: white !important;
+}
+img.gmail {
+  width: 20px;
+
+}
+img.telephone {
+  width: 20px;
+  margin-left: 7px;
+}
+
+span.category {
+  font-size: 150%;
+}
+a.nav-link.home {
+  background-color: orange !important;
+  color: white !important;
+  border-radius: 4px;
+}
+
+.card.card-cascade.wider.reverse {
+  margin-bottom: 1%;
+}
+
+#ul_top_hypers li{
+  display: inline;
+}
+a.nav-link.waves-effect {
+  color: white;
+}
+
+button.btn.btn-orange {
+  color: white;
+}
+
+button.mat-raised-button.mat-button-base.mat-orange {
+  background-color: #ff9800 ;
+  color: white;
+}
+li.orderdon{
+  margin-left: 1%;
+}
+li.deliveredon {
+  margin-left: 5%;
+}
+
+
+@media screen and (max-width: 1060px){
+
+  .div_top_hypers.myicnons.navmedia {
+    margin-left: 0%;
+}
+  li.orderdon.mdiesa {
+    margin-left: -15%;
+    font-size: 90%;
+}
+li.orderid {
+  margin-left: 5%;
+}
+  ul.list-unstyled.mymdeisa {
+    margin-left: 45%;
+}
+
+
+li.deliveredon.mydedia {
+  font-size: 90%;
+}
+
+
+  li.homescreen {
+    margin-left: -15%;
+  }
+
+li.nav-item.hepldesk.helpmdeia {
+  margin-top: 100px;
+  font-size: 120%;
+  margin-left: 0%;
+}
+
+.checkoutproducts.mediadd {
+  margin-left: 15%;
+}
+  }
+
+
+  li.healthtips {
+    color: blue;
+    font-weight: bold;
+  }
