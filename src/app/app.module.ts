@@ -15,6 +15,7 @@ import { SignInComponent } from './user/signin/signin.component';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     SignInComponent,
     SignupComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

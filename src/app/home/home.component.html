@@ -38,4 +38,72 @@
   </a>
   <!--/.Controls-->
 </div>
-<!--/.Carousel Wrapper-->
+<!-- <div class="container" >
+  <ng-container >
+  <span class="category" >Products<a class="btn btn-maroon mb1 bg-maroon" routerLink="'/productsbycategory/',item.cat_id">Click to View</a></span>
+  <div class="row">
+    <div class="col-md-3" >
+      <div class="card-deck">
+        <div class="card mb-3">
+          <div class="view overlay">
+            <img src="https://img.icons8.com/fluent/48/000000/non-vegetarian-food-symbol.png" width="25"
+              style="float: right"  />
+            <img src="https://img.icons8.com/fluent/48/000000/vegetarian-food-symbol.png" width="25"
+              style="float: right" />
+            <a routerLink="/productdetailed/">
+              <img class="card-img-top" src="">
+            </a>
+          </div>
+          <div class="card-body">
+            <a routerLink="/productdetailed/">
+              <h6 class="card-title" style="text-align: center;"></h6>
+            </a>
+
+            <div class="product-price">
+              <span class="price">
+                 </span>
+              <span class="price-before-discount"></span>
+            </div>
+            <div class="product-cart ">
+              <a (click)="checkisLoggedIn(9)">
+                <mdb-icon fas icon="cart-plus"></mdb-icon>
+              </a>
+            </div>
+
+            <div class="product-cart ">
+              <a>
+                <mdb-icon fas icon="ban"></mdb-icon>
+              </a>
+            </div>
+            <h6 class="quantity"></h6>
+<br>
+            <hr>
+            <div class="action"><a routerLink="'/productdetailed/',el.product_id"
+                class="lnk btn btn-orange">Order Now</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+</div>  -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let product of productsArr | paginate: { itemsPerPage: 3, currentPage: p }">
+      <div class="card h-100"> <!-- Ensure each card takes full height -->
+        <img [src]="product.image" class="card-img-top" alt="Product Image"style="height: 200px; object-fit: contextmenu">
+        <div class="card-body d-flex flex-column"> <!-- Use flex utilities for card body -->
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text flex-grow-2">{{ product.description }}</p> <!-- flex-grow-1 to expand text content -->
+          <p class="card-text">$ {{ product.price }}</p>
+          <a href="#" class="btn btn-primary mt-auto">Order Now</a> <!-- mt-auto to push button to bottom -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination controls -->
+  <div class="row justify-content-center mt-4">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
