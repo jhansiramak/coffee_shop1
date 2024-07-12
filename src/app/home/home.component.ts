@@ -174,4 +174,11 @@ ngOnInit(): void {
   // Assuming getProductDetails returns an array of products
   this.productsArr=this.productService.getAllProducts()
 }
+sort(order: string) {
+  if (order === 'asc') {
+    this.productsArr.sort((a, b) => a.price - b.price);
+  } else if (order === 'desc') {
+    this.productsArr.sort((a, b) => b.price - a.price);
+  }
+}
 }

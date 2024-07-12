@@ -87,23 +87,35 @@
   </div>
   </ng-container>
 </div>  -->
+<h1 class="text-center">Product List</h1>
 <div class="container">
+  <div class="row my-2">
+    <div class="col-sm-4 offset-4">
+      <input type="search" [(ngModel)]="searchText" class="form-control" placeholder="Search products...">
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-primary mx-1" (click)="sort('asc')">Sort Asc</button>
+      <button class="btn btn-secondary" (click)="sort('desc')">Sort Desc</button>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-sm-4" *ngFor="let product of productsArr | paginate: { itemsPerPage: 3, currentPage: p }">
-      <div class="card h-100"> <!-- Ensure each card takes full height -->
-        <img [src]="product.image" class="card-img-top" alt="Product Image"style="height: 200px; object-fit: contextmenu">
-        <div class="card-body d-flex flex-column"> <!-- Use flex utilities for card body -->
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text flex-grow-2">{{ product.description }}</p> <!-- flex-grow-1 to expand text content -->
-          <p class="card-text">$ {{ product.price }}</p>
-          <a href="#" class="btn btn-primary mt-auto">Order Now</a> <!-- mt-auto to push button to bottom -->
+    <div class="col-sm-3" *ngFor="let product of (productsArr | search: searchText | paginate: { itemsPerPage: 4, currentPage: p })">
+      <div class="card text-center h-100">
+        <img [src]="product.image" class="card-img-top" alt="Product Image" height="150">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.category }}</h5>
+          <p class="card-text">{{ product.title }}</p>
+          <p class="card-text text-truncate">{{ product.description }}</p>
+          <p class="card-text">{{ product.rating.rate }}</p>
+          <p class="card-text">{{ product.price }}</p>
+          <a href="#" class="btn btn-primary mt-auto" [routerLink]="['/productdetails', product.id]">Details</a>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Pagination controls -->
-  <div class="row justify-content-center mt-4">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <div class="offset-4">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
   </div>
 </div>
+
+
