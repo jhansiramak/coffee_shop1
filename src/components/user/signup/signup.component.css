@@ -1,0 +1,85 @@
+/* Ensure the body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Center the form container in the middle of the page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Style for the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+form img {
+  width: 100px; /* Adjust size as needed */
+  margin-bottom: 20px;
+}
+
+/* Style inputs and submit button */
+input[type="text"], input[type="password"], input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button */
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Checkbox and label */
+.custom-control {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.custom-control-label {
+  margin-left: 5px;
+}
+
+/* Validation messages */
+.validation-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -8px;
+}
+
+/* Success and error messages */
+.success, .alert {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.success {
+  color: green;
+}
+
+.alert {
+  color: red;
+}

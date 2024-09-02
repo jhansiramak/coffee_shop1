@@ -1,0 +1,27 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div>
+      <img src="assets/single_user.png" id="icon" alt="User Icon">
+    </div>
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" formControlName="mobilenumber" placeholder="Mobile Number"
+        [ngClass]="{'invalid-textbox': signInForm.controls['mobilenumber'].invalid && (signInForm.controls['mobilenumber'].touched || signInForm.controls['mobilenumber'].dirty)}">
+        <div *ngIf="signInForm.controls['mobilenumber'].hasError('pattern') && (signInForm.controls['mobilenumber'].dirty)">
+          <label class="validation-message">Mobile number is required</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" formControlName="password" placeholder="Password"
+        [ngClass]="{'invalid-textbox':signInForm.controls['password'].invalid && (signInForm.controls['password'].touched || signInForm.controls['password'].dirty)}">
+        <div *ngIf="signInForm.controls['password'].hasError('minlength') && (signInForm.controls['password'].touched || signInForm.controls['password'].dirty)">
+          <label class="validation-message">Minimum 4 characters</label>
+        </div>
+      </div>
+      <input type="submit" value="Sign In" >
+    </form>
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+  </div>
+</div>

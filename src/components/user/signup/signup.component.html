@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <img src="/assets/users.png" id="icon" alt="User Icon" />
+
+    <input type="text" formControlName="user_name" placeholder="Name"
+      [ngClass]="{'invalid-textbox': signUpForm.get('user_name')?.invalid && signUpForm.get('user_name')?.touched }">
+    <div *ngIf="signUpForm.get('user_name')?.invalid && signUpForm.get('user_name')?.touched">
+      <label class="validation-message">This field is required.</label>
+    </div>
+
+    <input type="text" formControlName="mobile_number" placeholder="Mobile Number"
+      [ngClass]="{'invalid-textbox': signUpForm.get('mobile_number')?.invalid && signUpForm.get('mobile_number')?.touched }">
+    <div *ngIf="signUpForm.get('mobile_number')?.invalid && signUpForm.get('mobile_number')?.touched">
+      <label class="validation-message">Please enter a valid mobile number.</label>
+    </div>
+
+    <input type="text" formControlName="email_id" placeholder="Email"
+      [ngClass]="{'invalid-textbox': signUpForm.get('email_id')?.invalid && signUpForm.get('email_id')?.touched }">
+    <div *ngIf="signUpForm.get('email_id')?.invalid && signUpForm.get('email_id')?.touched">
+      <label *ngIf="signUpForm.get('email_id')?.errors?.required" class="validation-message">This field is required.</label>
+      <label *ngIf="signUpForm.get('email_id')?.errors?.email" class="validation-message">Invalid email address.</label>
+    </div>
+
+    <input type="password" formControlName="password" placeholder="Password"
+      [ngClass]="{'invalid-textbox': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched }">
+    <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+      <label *ngIf="signUpForm.get('password')?.errors?.required" class="validation-message">This field is required.</label>
+      <label *ngIf="signUpForm.get('password')?.errors?.minlength" class="validation-message">Enter at least 4 characters.</label>
+    </div>
+
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" formControlName="terms" id="defaultRegisterFormNewsletter">
+      <label class="custom-control-label" for="defaultRegisterFormNewsletter">
+        By clicking <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+      </label>
+    </div>
+
+    <input type="submit" value="Sign Up" [disabled]="signUpForm.invalid">
+  </form>
+</div>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
