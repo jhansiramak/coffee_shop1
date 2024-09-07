@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ApiCallService } from '../../../services/apicalls/apicall.service';
+import { every } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   count: any;
   policydocs: any;
   email: any;
+  showCartIcon:boolean=true;
   constructor(private router: Router, private apiCall: ApiCallService, private route: ActivatedRoute) {
 
   }
@@ -32,7 +34,15 @@ export class NavbarComponent implements OnInit {
     this.apiCall.cartdata.subscribe(cartlength => {
       console.log(cartlength)
       this.count = cartlength;
-    })
+    }) 
+     this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+          // List of routes where the cart icon should be hidden
+        const hiddenRoutes=['/login','/signup','']; // Check for '' (empty string) for introduction
+        this.showCartIcon=!hiddenRoutes.some(route=>event.url===route||event.url==='/')// Handle empty string and root
+      }
+     })
+
   }
 
 

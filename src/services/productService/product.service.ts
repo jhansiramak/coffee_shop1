@@ -175,7 +175,10 @@ export class ProductService {
     return this.products;
   }
 
-  getProductById(id: number) {
+  getProductById(id: any) {
     return this.products.find(product => product.id === id);
+  }
+  getProductBySearch(text:any){
+    return this.products.filter(product=>product.title===text)
   }
 }

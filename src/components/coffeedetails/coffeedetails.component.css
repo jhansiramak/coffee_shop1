@@ -1,0 +1,39 @@
+/* Ensure the card is centered and has a good visual appeal */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767.98px) {
+    .card {
+      margin: 0 auto;
+    }
+  }
+  
+  /* Optional: Add spacing for better visual appeal */
+  .container {
+    padding: 20px;
+  }
+  
+  .row {
+    margin: 0;
+  }
+  

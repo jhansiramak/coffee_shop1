@@ -95,8 +95,8 @@
       <input type="search" [(ngModel)]="searchText" class="form-control" placeholder="Search products...">
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-primary mx-1" (click)="sort('asc')">Sort Asc</button>
-      <button class="btn btn-secondary" (click)="sort('desc')">Sort Desc</button>
+      <!-- <button class="btn btn-primary mx-1" (click)="sort('asc')">Sort Asc</button>
+      <button class="btn btn-secondary" (click)="sort('desc')">Sort Desc</button> -->
     </div>
   </div>
   <div class="row">
@@ -109,7 +109,7 @@
           <p class="card-text text-truncate">{{ product.description }}</p>
           <p class="card-text"> ⭐{{ product.rating.rate }}</p>
           <p class="card-text">${{ product.price }}</p>
-          <a href="#" class="btn btn-primary mt-auto" [routerLink]="['/productdetails', product.id]">Details</a>
+          <a href="#" class="btn btn-primary mt-auto" [routerLink]="['/details', product.id]">Details</a>
         </div>
       </div>
     </div>

@@ -14,6 +14,8 @@ import { HomeComponent } from '../components/home/home.component';
 import { SearchPipe } from '../pipe/pipes/search.pipe';
 import { IntroductionComponent } from '../components/introduction/introduction.component';
 import { IntroductionHeaderComponent } from 'src/components/introduction-header/introduction-header.component';
+import { CommonModule } from '@angular/common';
+import { CoffeedetailsComponent } from 'src/components/coffeedetails/coffeedetails.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { IntroductionHeaderComponent } from 'src/components/introduction-header/
     HomeComponent,
     SearchPipe,
     IntroductionComponent,
-    IntroductionHeaderComponent
+    IntroductionHeaderComponent,
+    CoffeedetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { IntroductionHeaderComponent } from 'src/components/introduction-header/
     WavesModule,
     TableModule,
     IconsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

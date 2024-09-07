@@ -5,6 +5,7 @@ import { SignupComponent } from '../components/user/signup/signup.component';
 import { SignInComponent } from '../components/user/signin/signin.component';
 import { HomeComponent } from '../components/home/home.component';
 import { IntroductionComponent } from 'src/components/introduction/introduction.component';
+import { CoffeedetailsComponent } from 'src/components/coffeedetails/coffeedetails.component';
 
 const routes: Routes = [
  
@@ -20,7 +21,8 @@ const routes: Routes = [
     path: '', redirectTo: '/', pathMatch: 'full'
   },
   { path: 'home', component: HomeComponent },
-  { path: '', component: IntroductionComponent }
+  { path: '', component: IntroductionComponent },
+  { path: 'details/:id', component: CoffeedetailsComponent }
 
  
 ];
