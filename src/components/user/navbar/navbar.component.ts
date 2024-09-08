@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ApiCallService } from '../../../services/apicalls/apicall.service';
 import { every } from 'rxjs';
@@ -9,6 +9,7 @@ import { every } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+ 
   isLoggedIn: Boolean = false;
   elements: any;
   mobilenumber: any;
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger
     this.apiCall.loggedIn.subscribe(logged => {
       this.isLoggedIn = logged;
       this.getclientorgname();
@@ -43,6 +45,7 @@ export class NavbarComponent implements OnInit {
       }
      })
 
+     this.cartcount=parseInt(localStorage.getItem('count'))
   }
 
 
@@ -53,12 +56,8 @@ export class NavbarComponent implements OnInit {
   }
 
   getalladdtocartproducts() {
-    const data = { cust_id: this.apiCall.getcust_id(), client_id: this.apiCall.getclient_id() }
-    this.apiCall.getalladdtocartproducts(data).subscribe((res: any) => {
-      this.cartcount = res.result
-      this.count = this.cartcount.length;
-      console.log(this.count)
-    })
+   
+   
   }
 
 
