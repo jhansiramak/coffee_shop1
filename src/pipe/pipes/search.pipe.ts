@@ -10,7 +10,7 @@ export class SearchPipe implements PipeTransform {
     if (!searchText) return inputArr;
 
     return inputArr.filter((ele: any) => {
-      return JSON.stringify(ele).includes(searchText);
+      return JSON.stringify(ele).toLowerCase().includes(searchText);
     })
 
   }

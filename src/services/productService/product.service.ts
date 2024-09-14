@@ -181,4 +181,5 @@ export class ProductService {
   getProductBySearch(text:any){
     return this.products.filter(product=>product.title===text)
   }
+  
 }

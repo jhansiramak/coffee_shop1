@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ApiCallService } from '../../../services/apicalls/apicall.service';
 import { every } from 'rxjs';
+import { CartserviceService } from 'src/services/cartservice/cartservice.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,12 +17,12 @@ export class NavbarComponent implements OnInit {
   orgn_name: any;
   orgn_logo: any;
   aboutus: any;
-  cartcount: any;
   count: any;
   policydocs: any;
   email: any;
   showCartIcon:boolean=true;
-  constructor(private router: Router, private apiCall: ApiCallService, private route: ActivatedRoute) {
+  cartCount:number=0;
+  constructor(private router: Router, private apiCall: ApiCallService, private route: ActivatedRoute, private cartService:CartserviceService) {
 
   }
 
@@ -30,7 +31,9 @@ export class NavbarComponent implements OnInit {
     this.apiCall.loggedIn.subscribe(logged => {
       this.isLoggedIn = logged;
       this.getclientorgname();
-      this.getalladdtocartproducts()
+      this.cartService.cartCount$.subscribe(count => {
+        this.cartCount = count;
+      });
     });
 
     this.apiCall.cartdata.subscribe(cartlength => {
@@ -45,7 +48,7 @@ export class NavbarComponent implements OnInit {
       }
      })
 
-     this.cartcount=parseInt(localStorage.getItem('count'))
+    //  this.cartcount=parseInt(localStorage.getItem('count'))
   }
 
 
@@ -55,10 +58,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  getalladdtocartproducts() {
-   
-   
-  }
+
 
 
 

@@ -1,0 +1,9 @@
+<div *ngFor="let innerArray of cartItems">
+    <div *ngFor="let item of innerArray">
+      <h3>{{ item.title }}</h3>
+      <img [src]="item.image" alt="{{ item.title }}" width="100">
+      <p>{{ item.description }}</p>
+      <p>Price: {{ item.price | currency }}</p>
+      <p>Rating: {{ item.rating.rate }} ({{ item.rating.count }} reviews)</p>
+    </div>
+  </div>

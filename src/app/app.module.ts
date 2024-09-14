@@ -16,6 +16,7 @@ import { IntroductionComponent } from '../components/introduction/introduction.c
 import { IntroductionHeaderComponent } from 'src/components/introduction-header/introduction-header.component';
 import { CommonModule } from '@angular/common';
 import { CoffeedetailsComponent } from 'src/components/coffeedetails/coffeedetails.component';
+import { CartComponent } from 'src/components/cart-details/cart/cart.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CoffeedetailsComponent } from 'src/components/coffeedetails/coffeedetai
     SearchPipe,
     IntroductionComponent,
     IntroductionHeaderComponent,
-    CoffeedetailsComponent
+    CoffeedetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
