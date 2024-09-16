@@ -1,4 +1,4 @@
-<div *ngFor="let innerArray of cartItems">
+<!-- <div *ngFor="let innerArray of cartItems">
     <div *ngFor="let item of innerArray">
       <h3>{{ item.title }}</h3>
       <img [src]="item.image" alt="{{ item.title }}" width="100">
@@ -6,4 +6,33 @@
       <p>Price: {{ item.price | currency }}</p>
       <p>Rating: {{ item.rating.rate }} ({{ item.rating.count }} reviews)</p>
     </div>
+  </div> -->
+  <app-navbar></app-navbar>
+<div class="cart-container">
+  <div *ngFor="let uniqueItem of uniqueItems" class="cart-item">
+    <img [src]="uniqueItem.image" alt="{{ uniqueItem.title }}" class="item-image">
+    
+    <div class="item-details">
+      <h3>{{ uniqueItem.title }}</h3>
+      <p>{{ uniqueItem.description }}</p>
+      <p>Price: {{ totalPrice | currency }}</p>
+      <!-- <p>Rating: {{ uniqueItem.item.rating.rate }} ({{ uniqueItem.item.rating.count }} reviews)</p> -->
+      
+      <div class="quantity-controls">
+        <button  *ngIf="btndecrease" (click)="decreaseQuantity(uniqueItem.price)">-</button>
+        <span>{{ cartCount }}</span>
+        <button (click)="increaseQuantity(uniqueItem.price)">+</button>
+      </div>
+
+      <button class="delete-button"  *ngIf="btnDelete" (click)="deleteItem(uniqueItem)">Delete</button>
+    </div>
   </div>
+</div> 
+
+<ng-template #emptyCart>
+  <div class="empty-cart-container">
+    <p class="empty-cart-text" >Your cart is empty.</p>
+    <button class="shop-now-button" >Shop Now</button>
+  </div>
+</ng-template>
+<app-footer></app-footer>

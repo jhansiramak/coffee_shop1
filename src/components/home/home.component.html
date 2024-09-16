@@ -110,6 +110,7 @@
           <p class="card-text"> ⭐{{ product.rating.rate }}</p>
           <p class="card-text">${{ product.price }}</p>
           <a href="#" class="btn btn-primary mt-auto" [routerLink]="['/details', product.id]">Details</a>
+          <button class="btn btn-primary w-100 mb-2" (click)="getProductById(product.id)">Add to Cart</button>
         </div>
       </div>
     </div>

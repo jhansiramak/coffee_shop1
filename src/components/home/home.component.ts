@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from "../../pipe/pipes/search.pipe";
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../../services/productService/product.service';
+import { CartserviceService } from 'src/services/cartservice/cartservice.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -167,8 +168,10 @@ export class HomeComponent {
 productsArr: any[] = [];
 searchText: string = '';
 p: number = 1;
-
-constructor(private productService: ProductService) { }
+data:any[]=[];
+id:any;
+addToCartItems:any;
+constructor(private productService: ProductService,private cartService:CartserviceService) { }
 
 ngOnInit(): void {
   // Assuming getProductDetails returns an array of products
@@ -181,4 +184,15 @@ sort(order: string) {
     this.productsArr.sort((a, b) => b.price - a.price);
   }
 }
+getProductById(id:any){
+ 
+   this.data=this.productsArr.filter(x=>x.id===this.id);
+   
+    this.addToCartItems=this.cartService.addToCart(this.data);
+}
+// getAllAddtoCartProducts() {
+ 
+//   this.cartService.addToCart(this.data);
+
+// }
 }

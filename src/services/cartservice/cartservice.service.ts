@@ -18,4 +18,16 @@ export class CartserviceService {
     return this.cart;
     console.log(this.cart)
   }
+  updateCartCount() {
+    let currentCount = this.cartCount.value;
+    this.cartCount.next(currentCount+1); // Emit the new count
+  }
+
+  updateCartCountonDecrement() {
+    let currentCount = this.cartCount.value;
+    this.cartCount.next(currentCount-1); // Emit the new count
+  }
+  deleteCartCount(count: number) {
+    this.cartCount.next(count); // Emit the new cart count
+}
 }
